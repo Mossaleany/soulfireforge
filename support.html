@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Soulfire Forge</title>
+
+  <!-- Page Transition (Fire Burn) -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- Lava Background -->
+  <div class="lava-bg">
+    <div class="lava-drop" style="left:10%; animation-delay:0s;"></div>
+    <div class="lava-drop" style="left:25%; animation-delay:1s;"></div>
+    <div class="lava-drop" style="left:50%; animation-delay:0.5s;"></div>
+    <div class="lava-drop" style="left:75%; animation-delay:1.2s;"></div>
+  </div>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* === HEADER FIX: CENTER TITLE & RESTORE FIRE EMOJIS === */
+    header {
+      text-align: center;
+      padding: 1.5rem 0 1rem;
+    }
+
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      color: #ff5500;
+      text-shadow: 0 0 20px #ff3300, 0 0 40px #ff2200;
+      margin: 0.5rem 0;
+      animation: flickerText 2s infinite alternate;
+      display: inline-block;
+    }
+
+    .title::before,
+    .title::after {
+      content: "🔥";
+      font-size: 2.5rem;
+      vertical-align: middle;
+      margin: 0 0.8rem;
+      animation: flickerText 2s infinite alternate;
+    }
+
+    .subtitle {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3rem;
+      color: #ffaa80;
+      text-shadow: 0 0 10px #ff3300, 0 0 20px #ff2200;
+      margin: 0.4rem 0 2rem;
+      animation: flickerSubtitle 2s infinite alternate;
+    }
+
+    @keyframes flickerSubtitle {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ff3300, 0 0 20px #ff2200;
+      }
+      20%, 24%, 55% {
+        opacity: 0.85;
+        text-shadow: 0 0 5px #ff2200;
+      }
+    }
+
+    /* === HERO SECTION WITH DEMON GIF === */
+    .intro {
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 1rem;
+      margin: 3rem auto;
+      max-width: 1200px;
+      border-radius: 16px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .hero-gif {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('land.gif') center/cover no-repeat;
+      background-size: contain;
+      background-position: center;
+      z-index: 0;
+      mix-blend-mode: screen;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .hero-gif::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10, 0, 0, 0.78);
+      z-index: 1;
+      backdrop-filter: blur(1px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .hero-content h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 0 20px #ff2200, 0 0 40px #ff1100;
+      animation: flickerText 2s infinite alternate;
+    }
+
+    .hero-content p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      color: #ffaa80;
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ff2200, #ff5500);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff5500;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .title { font-size: 2.4rem; }
+      .title::before, .title::after { font-size: 1.8rem; margin: 0 0.4rem; }
+      .hero-content h2 { font-size: 2.2rem; }
+      .hero-content p { font-size: 1.1rem; }
+      .intro { padding: 3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="support.html" class="active">Support</a></li>
+        <li><a href="sponsor.html">Sponsor</a></li>
+        <li><a href="shop.html">Shop</a></li>
+      </ul>
+    </nav>
+    <h1 class="title">Support The Forge</h1>
+    <p class="subtitle">Forge Your Soul in Eternal Flames</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Intro / Hero Section with Demon GIF -->
+    <section class="intro">
+      <div class="hero-gif"></div>
+      <div class="hero-content">
+        <h2>Welcome to the Soulfire ARMORY</h2>
+        <p>Descend into the blistering heart of damnation, where souls are hammered into unholy perfection. Arm yourself with demon-forged loadouts that shred through abyssal foes—customize hellfire blades, shadow cloaks, and curse amplifiers to dominate every infernal raid. Your arsenal awaits; forge it, wield it, conquer.</p>
+        <div class="cta-buttons">
+          <a href="https://discord.gg/Rbs2bfnm" class="btn">Join The SoulFire Discord</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Streams -->
+    <section class="featured-streams">
+      <h2>Socials</h2>
+      <div class="stream-cards">
+        <div class="stream-card">
+          <h3>Grab my Socials Here</h3>
+          <p></p>
+          <a href="https://www.twitch.tv/ni7y" class="btn">SoulFire Forge Facebook</a>
+          <a href="https://discord.gg/HY28vRvHEp" class="btn">Nook Of Legends Discord</a>
+          <a href="https://www.twitch.tv/ni7y" class="btn">SoulFire Forge Twitch</a>
+        </div>
+        
+        <div class="stream-card">
+        <h2>Fuel the Forge!</h2>
+        <p>Lurk in the shadowed galleries of the Soulfire Forge, where each stream is a ritual binding the Ninth Circle’s gaze. Your view is a soul-brand seared into the Obsidian Ledger; the counter ticks like the heartbeat of a chained archdemon. Smash the like rune until it fractures each crack releases a wisp of sulfur that coils around the streamer’s throne, sharpening his reflexes to infernal precision.</p>
+        <p>Follow, and your name is etched on the Brass Spire that pierces Perdition’s sky; the legion swells, the heat rises, the Soulfire Forge never cools. gold, blood just your undying attendance at the eternal roast.</p>
+        <p><strong>Burn brighter. Spread the Soulfire. The Devil is counting.</strong></p>
+
+        <a href="https://www.twitch.tv/ni7y" class="btn">Add Fuel</a>
+        </div>
+        
+        <div class="stream-card">
+          <h3>Stoke the Soulfire</h3>
+          <p>Spread the Heat! Rally behind our Lord by watching his streams, so Spread the Blaze. Your likes, follows and comments? That's the kindling. Every watch keeps his channel burning, every shout-out drags more sinners into the fray. Hell doesn't need your wallet-just your voice.</p>
+          <p>Drop comments in the ancient tongue of the Pit: <em>“Hail the Flamebearer!”</em> or <em>“Another raid for the Ashen Crown!”</em> Every syllable is molten pitch poured onto the brazier, amplifying the broadcast until it scorches the mortal plane. Tag the unwary across Twitch, Facebook and the Discord Catacombs each mention is a barbed chain yanking fresh victims through the portal.</p>
+        </div>
+    </section>
+
+        <div class="stream-card">
+          <h3>Pact-Bound Patrons of Perdition</h3>
+          <p>Deep beneath the Soulfire Forge, in vaults sealed by the Sigil of the Seven Horns, lie the **Pact-Bound Patrons**—corporations and covens that traded mortal gold for a sliver of infernal prestige. Their brands are branded onto the very walls of Hell’s Colosseum, glowing with the same cursed ember that fuels every raid, every clutch, every demonic laugh that rattles the Ninth Circle.</p>
+
+          <p>These are no mere sponsors. They are arch-sponsors, their logos forged in soul-iron, etched by the claw of Asmodeus the Ad-Man. Every banner that flickers across the stream is a binding contract: their coin summons In return? Their name echoes in the Chorus of the Damned, chanted by legions during boss fights.</p>
+        <a href="sponsor.html" class="btn">Contact Us</a>
+        </div>
+    </section>
+   
+       <!-- Streaming Schedule -->
+
+      <div class="stream-card">
+          <h3>Streaming Schedule</h3>
+          <p>Friday 8.30 PM – The Am: Dark Chaos</p>
+          <p>Satarday 8.30 PM – The Am: Multiplayer Madness</p>
+          <p>Sunday 8.30 PM – The Am: RPG & Community Events</p>
+          <a href="https://discord.gg/Rbs2bfnm" class="btn">Join In</a>
+        </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Soulfire Forge — Forged in Fire</p>
+    <div class="socials">
+      <a href="#" title="Instagram">Facebook</a>
+      <a href="#" title="Discord">Discord</a>
+      <a href="#" title="YouTube">Youtube</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+

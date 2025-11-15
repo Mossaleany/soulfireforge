@@ -1,0 +1,209 @@
+/* === GENERAL PAGE STYLING === */
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background-color: #0a0a0a;
+  color: #f2f2f2;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === NAVIGATION BAR === */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 0;
+  background: rgba(20, 0, 0, 0.85);
+  box-shadow: 0 0 20px rgba(255, 80, 0, 0.4);
+  border-bottom: 2px solid rgba(255, 50, 0, 0.5);
+  position: relative;
+  z-index: 1000;
+}
+
+/* Horizontal list styling */
+nav ul {
+  list-style: none;
+  display: flex;              /* horizontal layout */
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  gap: 2rem;                  /* spacing between links */
+}
+
+nav li {
+  display: inline;
+}
+
+nav a {
+  color: #ff5500;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ffd580;
+  text-shadow: 0 0 10px #ff4500, 0 0 20px #ff2200;
+}
+
+/* === TITLE FLICKER === */
+h1, h2, h3 {
+  text-align: center;
+  color: #ff5500;
+  text-shadow: 0 0 20px #ff3300, 0 0 40px #ff2200;
+  animation: flickerText 2s infinite alternate;
+}
+
+@keyframes flickerText {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 15px #ff3300, 0 0 30px #ff1100;
+  }
+  20%, 24%, 55% {
+    opacity: 0.8;
+    text-shadow: none;
+  }
+}
+
+/* === LAVA BACKGROUND === */
+.lava-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #1a0000 0%, #000000 100%);
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* === LAVA DROPS === */
+.lava-drop {
+  position: absolute;
+  width: 8px;
+  height: 25px;
+  background: linear-gradient(to bottom, #ff4500, #ff2200, #660000);
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: drip 4s infinite ease-in-out;
+  box-shadow: 0 0 10px #ff2200;
+}
+
+@keyframes drip {
+  0% { transform: translateY(0) scaleY(1); opacity: 1; }
+  70% { transform: translateY(40vh) scaleY(1.4); opacity: 0.9; }
+  100% { transform: translateY(100vh) scaleY(0.8); opacity: 0; }
+}
+
+/* === MAIN CONTENT === */
+main {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(20, 0, 0, 0.6);
+  border: 1px solid rgba(255, 80, 0, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 40, 0, 0.4);
+  backdrop-filter: blur(6px);
+  text-align: center;
+  z-index: 10;
+}
+
+/* === BUTTONS === */
+button, .btn {
+  background: linear-gradient(90deg, #ff2200, #ff5500);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover, .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff5500;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: rgba(20, 0, 0, 0.85);
+  border-top: 2px solid rgba(255, 50, 0, 0.5);
+  color: #ff8040;
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 20px rgba(255, 80, 0, 0.3);
+}
+
+/* === FIRE BURN TRANSITION (Bottom → Top) === */
+.page-transition {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: radial-gradient(circle at bottom, rgba(255, 100, 0, 0.9), rgba(255, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+  box-shadow: 0 -10px 60px rgba(255, 80, 0, 0.6);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform-origin: bottom;
+}
+
+/* Fire triggers when active */
+.page-transition.active {
+  pointer-events: auto;
+  animation: fireBurnUp 1.3s ease-in-out forwards;
+}
+
+/* 🔥 Rising Fire Animation */
+@keyframes fireBurnUp {
+  0% {
+    height: 0%;
+    opacity: 0.4;
+    filter: blur(2px);
+    background: radial-gradient(circle at bottom, rgba(255, 80, 0, 0.4), rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.95));
+  }
+  30% {
+    height: 50%;
+    opacity: 0.9;
+    background: radial-gradient(circle at bottom, rgba(255, 160, 0, 0.7), rgba(255, 60, 0, 0.9), rgba(0, 0, 0, 1));
+    box-shadow: 0 -30px 80px rgba(255, 100, 0, 0.8);
+  }
+  70% {
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 220, 0, 0.6), rgba(255, 60, 0, 0.9), rgba(0, 0, 0, 1));
+    filter: brightness(1.5) blur(4px);
+  }
+  100% {
+    height: 100%;
+    opacity: 0;
+    background: rgba(0, 0, 0, 1);
+    filter: brightness(0.7);
+  }
+}
+
+/* 🔥 Flickering Flame Overlay */
+.page-transition.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at bottom, rgba(255, 200, 50, 0.2), rgba(255, 60, 0, 0.1), transparent 80%);
+  mix-blend-mode: screen;
+  animation: flickerFire 0.25s infinite alternate;
+}
+
+@keyframes flickerFire {
+  0% { opacity: 0.6; transform: scaleY(1.02); }
+  100% { opacity: 1; transform: scaleY(1.05); }
+}

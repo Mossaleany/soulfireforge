@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Soulfire Forge</title>
+
+  <!-- Page Transition (Fire Burn) -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- Lava Background -->
+  <div class="lava-bg">
+    <div class="lava-drop" style="left:10%; animation-delay:0s;"></div>
+    <div class="lava-drop" style="left:25%; animation-delay:1s;"></div>
+    <div class="lava-drop" style="left:50%; animation-delay:0.5s;"></div>
+    <div class="lava-drop" style="left:75%; animation-delay:1.2s;"></div>
+  </div>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* === HEADER FIX: CENTER TITLE & RESTORE FIRE EMOJIS === */
+    header {
+      text-align: center;
+      padding: 1.5rem 0 1rem;
+    }
+
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      color: #ff5500;
+      text-shadow: 0 0 20px #ff3300, 0 0 40px #ff2200;
+      margin: 0.5rem 0;
+      animation: flickerText 2s infinite alternate;
+      display: inline-block;
+    }
+
+    .title::before,
+    .title::after {
+      content: "🔥";
+      font-size: 2.5rem;
+      vertical-align: middle;
+      margin: 0 0.8rem;
+      animation: flickerText 2s infinite alternate;
+    }
+
+    .subtitle {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3rem;
+      color: #ffaa80;
+      text-shadow: 0 0 10px #ff3300, 0 0 20px #ff2200;
+      margin: 0.4rem 0 2rem;
+      animation: flickerSubtitle 2s infinite alternate;
+    }
+
+    @keyframes flickerSubtitle {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ff3300, 0 0 20px #ff2200;
+      }
+      20%, 24%, 55% {
+        opacity: 0.85;
+        text-shadow: 0 0 5px #ff2200;
+      }
+    }
+
+    /* === HERO SECTION WITH DEMON GIF === */
+    .intro {
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 1rem;
+      margin: 3rem auto;
+      max-width: 1200px;
+      border-radius: 16px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .hero-gif {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('land.gif') center/cover no-repeat;
+      background-size: contain;
+      background-position: center;
+      z-index: 0;
+      mix-blend-mode: screen;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .hero-gif::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10, 0, 0, 0.78);
+      z-index: 1;
+      backdrop-filter: blur(1px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .hero-content h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 0 20px #ff2200, 0 0 40px #ff1100;
+      animation: flickerText 2s infinite alternate;
+    }
+
+    .hero-content p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      color: #ffaa80;
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ff2200, #ff5500);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff5500;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .title { font-size: 2.4rem; }
+      .title::before, .title::after { font-size: 1.8rem; margin: 0 0.4rem; }
+      .hero-content h2 { font-size: 2.2rem; }
+      .hero-content p { font-size: 1.1rem; }
+      .intro { padding: 3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="sponsor.html">Sponsor</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+      </ul>
+    </nav>
+    <h1 class="title">Soulfire Vault</h1>
+    <p class="subtitle">Free shipping on orders over 666 souls. 🔥🛒</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Featured Streams -->
+    <section class="featured-streams">
+      <h2>Coming Soon...</h2>
+      <div class="stream-cards">
+        <div class="stream-card">
+          <h3>Snag gear forged in the underworld—tees that scream, hoodies that smolder, and mugs that hold the blood of your enemies (or coffee). Every purchase summons more chaos to the stream.</h3>
+          <p></p>
+          <a href="https://www.shopify.com/uk/ppc/business/online-store?term=shopify&adid=783996060717&campaignid=23258043534&branded_enterprise=1&BOID=brand&utm_medium=cpc&utm_source=google&gad_source=1&gad_campaignid=23258043534&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CGDLcp0rvTNc9DHdrNZiHvWmzvpTp1rOrIZQMc9D299HG2Hj4FZikwaAtdjEALw_wcB" class="btn">Visit Shop</a>
+          <a href="https://www.twitch.tv/ni7y" class="btn">Donate</a>
+        </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Soulfire Forge — Forged in Fire</p>
+    <div class="socials">
+      <a href="#" title="Instagram">Facebook</a>
+      <a href="#" title="Discord">Discord</a>
+      <a href="#" title="YouTube">Youtube</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
